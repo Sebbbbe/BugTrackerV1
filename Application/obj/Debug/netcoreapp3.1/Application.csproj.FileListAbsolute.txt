@@ -1,0 +1,14 @@
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\netcoreapp3.1\Application.deps.json
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\netcoreapp3.1\Application.dll
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\netcoreapp3.1\Application.pdb
+C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\netcoreapp3.1\Application.AssemblyInfoInputs.cache
+C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\netcoreapp3.1\Application.AssemblyInfo.cs
+C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\netcoreapp3.1\Application.csproj.CoreCompileInputs.cache
+C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\netcoreapp3.1\Application.dll
+C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\netcoreapp3.1\Application.pdb
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\netcoreapp3.1\Application.csproj.CopyComplete
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\netcoreapp3.1\Infrastructure.dll
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\netcoreapp3.1\Application.csproj.AssemblyReference.cache
