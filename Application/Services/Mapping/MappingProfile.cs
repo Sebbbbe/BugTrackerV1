@@ -1,5 +1,7 @@
 ﻿using Application.Features.Command.Issues.CreateIssue;
+using Application.Features.Issues.Query;
 using AutoMapper;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,8 +15,19 @@ namespace Application.Services
         {
 
 
-            //issue
-            CreateMap<CreateIssueHandler, CreateIssueResponse>();
+            //from model to CreateModelResponse
+            CreateMap<Issue, CreateIssueResponse>();
+          
+            
+            
+            
+
+            //from model to GetModelResponse
+            CreateMap<Issue, GetAllIssuesResponse>();
+
+
+
+
         }
 
    

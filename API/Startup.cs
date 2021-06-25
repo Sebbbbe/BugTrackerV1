@@ -26,7 +26,7 @@ namespace API
 {
     public class Startup
     {
-   
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -43,9 +43,19 @@ namespace API
             //context
             services.AddDbContext<BugTrackerContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-
-
+          
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                       builder =>
+                         {
+                                
+                            builder.WithOrigins("https://localhost:44321/",
+                                                 "https://localhost:44322/ ")
+                             .WithMethods("PUT", "DELETE", "GET", "POST").AllowAnyHeader(); ;
+                                    
+                         });
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -80,15 +90,19 @@ namespace API
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); 
+               
             }
 
             app.UseHttpsRedirection();
+           
 
             app.UseRouting();
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
-            
+      
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

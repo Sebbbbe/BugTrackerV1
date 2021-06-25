@@ -1,4 +1,5 @@
 ﻿using Application.Features.Command.Issues.CreateIssue;
+using Application.Features.Issues.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,10 +17,12 @@ namespace API.Controllers
     public class IssueController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IGetAllIssuesService _getAllIssuesService;
 
-        public IssueController(IMediator mediator)
+        public IssueController(IMediator mediator, IGetAllIssuesService getAllIssuesService)
         {
             _mediator = mediator;
+            _getAllIssuesService = getAllIssuesService;
         }
         //// GET: api/<ValuesController>
         //[HttpGet]
@@ -43,6 +46,14 @@ namespace API.Controllers
            await _mediator.Send(CreateIssueCommand);
           
         }
+
+
+        [HttpGet]
+        public async Task<List<GetAllIssuesResponse>> GetAllIssues()
+        {
+            return await _getAllIssuesService.Get();
+        }
+
 
         //// PUT api/<ValuesController>/5
         //[HttpPut("{id}")]

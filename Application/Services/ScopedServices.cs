@@ -1,4 +1,5 @@
 ﻿using Application.Features.Command.Issues.CreateIssue;
+using Application.Features.Issues.Query;
 using Domain.IRepository;
 using Infrastructure.Repository;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,13 @@ namespace Application.Services
             
             //Issue
             services.AddScoped<IIssueRepository ,  IssueRepository> ();
+
+
+
+
+            // service to handler
+
+            services.AddScoped<IGetAllIssuesService, GetAllIssuesHandler>();
 
 
 

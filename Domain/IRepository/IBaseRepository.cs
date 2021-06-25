@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace Domain.IRepository
 {
-   public interface IBaseRepository<TEntity> where TEntity : class
+   public interface IBaseRepository<T> where T : class
     {
-        Task<TEntity> AddAsync(TEntity entity);
+        Task<T> AddAsync(T entity);
+
+        Task<IReadOnlyList<T>> ListAllAsync();
     }
 }

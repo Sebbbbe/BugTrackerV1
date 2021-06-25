@@ -1,6 +1,8 @@
 ﻿using Domain.IRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,11 +22,15 @@ namespace Infrastructure.Repository
            await _bugTrackerContext.Set<T>().AddAsync(entity);
             _bugTrackerContext.SaveChanges();
             return entity;
-         
-
-
-
+     
         }
-      
+
+
+        public async Task<IReadOnlyList<T>> ListAllAsync()
+        {
+            return await _bugTrackerContext.Set<T>().ToListAsync();
+        }
+
+
     }
 }
