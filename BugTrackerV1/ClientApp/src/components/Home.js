@@ -69,10 +69,11 @@ export class Home extends Component {
 
    <div>
   <form action="">
-     <input type="text" id="summary"  /> <br></br>
-     <input type="text" id="category" /><br></br>
-     <input type="text" id="description" /><br></br>
-     <input type="text" id="priority" /><br></br>
+ 
+     <input type="text" id="summary"  placeholder="summary"/> <br></br>
+     <input type="text" id="category" placeholder="Category" /><br></br>
+     <input type="text" id="description" placeholder="Description"/><br></br>
+     <input type="text" id="priority" placeholder="Priority"/><br></br>
      </form>
 
 

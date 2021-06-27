@@ -26,7 +26,7 @@ namespace Application.Features.Command.Issues.CreateIssue
 
         public async Task<CreateIssueResponse> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
         {
-            var createIssueResponse = new CreateIssueResponse();
+            
             var issue = new Issue
             {
                 Summary = request.Summary,
