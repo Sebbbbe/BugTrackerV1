@@ -26,7 +26,7 @@ namespace API
 {
     public class Startup
     {
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        readonly string MyPolicy = "MyPolicy";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -37,25 +37,29 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-         
+
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyPolicy,
+                    builder =>
+                    {
+                        builder.WithOrigins(
+                              "http://localhost:44321",
+                            "http://localhost:44322"
+                          )
+                        .AllowAnyMethod().AllowAnyHeader();
+                    });
+            });
             services.AddControllers();
 
             //context
             services.AddDbContext<BugTrackerContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-          
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                       builder =>
-                         {
-                                
-                            builder.WithOrigins("https://localhost:44321/",
-                                                 "https://localhost:44322/ ")
-                             .WithMethods("PUT", "DELETE", "GET", "POST").AllowAnyHeader(); ;
-                                    
-                         });
-            });
+
+
+
+
 
             services.AddSwaggerGen(c =>
             {
@@ -64,7 +68,7 @@ namespace API
 
 
             services.AddScopeService(Configuration);
-           
+
             // Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>
             {
@@ -80,7 +84,7 @@ namespace API
 
 
 
-
+        
 
 
         }
@@ -88,17 +92,26 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+            });
+
+
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage(); 
-               
+                app.UseDeveloperExceptionPage();
+                app.UseCors();
             }
+          
 
             app.UseHttpsRedirection();
            
 
             app.UseRouting();
-            app.UseCors(MyAllowSpecificOrigins);
+        
 
             app.UseAuthorization();
       

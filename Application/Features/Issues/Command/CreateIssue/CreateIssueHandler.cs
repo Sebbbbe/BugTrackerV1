@@ -30,9 +30,12 @@ namespace Application.Features.Command.Issues.CreateIssue
             var issue = new Issue
             {
                 Summary = request.Summary,
+                Category = request.Category,
+                Description = request.Description,
+                Priority = request.Priority,
                 Issue_id = new Guid()
 
-            };
+            }; 
 
             await _issueRepository.AddAsync(issue);
 
