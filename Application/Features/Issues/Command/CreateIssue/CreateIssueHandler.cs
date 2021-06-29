@@ -8,6 +8,11 @@ using Domain.Models;
 using AutoMapper;
 using MediatR;
 using System.Threading;
+using Application.Validators;
+using FluentValidation;
+using FluentValidation.Results;
+using System.ComponentModel;
+using Application.Features.Issues.Command.CreateIssue;
 
 namespace Application.Features.Command.Issues.CreateIssue
 {
@@ -26,20 +31,51 @@ namespace Application.Features.Command.Issues.CreateIssue
 
         public async Task<CreateIssueResponse> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
         {
-            
-            var issue = new Issue
+
+          
+
+            var validator = new CreateIssueCommandValidation();
+
+            var results = validator.Validate(request);
+
+            var createIssueResponse = new CreateIssueResponse();
+
+            if (results.IsValid == false)
             {
-                Summary = request.Summary,
-                Category = request.Category,
-                Description = request.Description,
-                Priority = request.Priority,
-                Issue_id = new Guid()
+                createIssueResponse.Success = false;
+                createIssueResponse.ValidationErrors = new List<string>();
 
-            }; 
+                foreach (ValidationFailure error in results.Errors)
+                {
+                    createIssueResponse.ValidationErrors.Add(error.ErrorMessage);
+                }
+            }
 
-            await _issueRepository.AddAsync(issue);
+       
 
-            return _mapper.Map<CreateIssueResponse>(issue);
+
+                if (createIssueResponse.Success == true)
+            {
+                var issue = new Issue()
+                {
+                    Summary = request.Summary,
+
+                    Description = request.Description,
+                    Priority = request.Priority,
+                    Issue_id = new Guid()
+
+                };
+                await _issueRepository.AddAsync(issue);
+
+                createIssueResponse =  _mapper.Map<CreateIssueResponse>(issue);
+
+            }
+
+
+            return createIssueResponse;
+           
+
+    
 
 
 

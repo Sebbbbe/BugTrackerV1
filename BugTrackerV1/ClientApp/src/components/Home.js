@@ -29,7 +29,7 @@ export class Home extends Component {
 
  addIssueRequest(){
    let summary = document.getElementById('summary').value;
-   let category = document.getElementById('category').value;
+  
    let description = document.getElementById('description').value;
    let priority = document.getElementById('priority').value;
   axios({
@@ -37,9 +37,9 @@ export class Home extends Component {
       url: 'https://localhost:44321/api/Issue',
       data : {
         Summary : summary,
-        Category :category ,
-        Description :description ,
-        Priority : priority
+        Priority : priority,
+        Description :description 
+        
       }
       
 
@@ -71,9 +71,17 @@ export class Home extends Component {
   <form action="">
  
      <input type="text" id="summary"  placeholder="summary"/> <br></br>
-     <input type="text" id="category" placeholder="Category" /><br></br>
+     <form>
+         <select name = "dropdown" id="priority">
+            <option selected  value="Priority">Priority </option>
+            <option value = "Low" >Low </option>
+            <option value = "Medium">Medium</option>
+            <option value = "High">High</option>
+         </select>
+      </form>
+   
      <input type="text" id="description" placeholder="Description"/><br></br>
-     <input type="text" id="priority" placeholder="Priority"/><br></br>
+     
      </form>
 
 

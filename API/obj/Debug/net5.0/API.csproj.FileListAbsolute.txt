@@ -69,3 +69,6 @@ C:\Users\sebas\source\repos\BugTrackerV1\API\obj\Debug\net5.0\API.dll
 C:\Users\sebas\source\repos\BugTrackerV1\API\obj\Debug\net5.0\ref\API.dll
 C:\Users\sebas\source\repos\BugTrackerV1\API\obj\Debug\net5.0\API.pdb
 C:\Users\sebas\source\repos\BugTrackerV1\API\obj\Debug\net5.0\API.genruntimeconfig.cache
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
