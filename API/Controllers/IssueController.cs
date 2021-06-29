@@ -40,11 +40,11 @@ namespace API.Controllers
 
      // POST api/<ValuesController>
      [HttpPost]
-        public async Task Post(CreateIssueCommand CreateIssueCommand)
+        public async Task<ActionResult> Post(CreateIssueCommand CreateIssueCommand)
         {
 
-           await _mediator.Send(CreateIssueCommand);
-          
+          var response =  await _mediator.Send(CreateIssueCommand);
+            return Ok(response);
         }
 
 

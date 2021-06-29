@@ -13,6 +13,7 @@ using FluentValidation;
 using FluentValidation.Results;
 using System.ComponentModel;
 using Application.Features.Issues.Command.CreateIssue;
+using System.Runtime.Intrinsics.X86;
 
 namespace Application.Features.Command.Issues.CreateIssue
 {
@@ -27,34 +28,38 @@ namespace Application.Features.Command.Issues.CreateIssue
             _issueRepository = issueRepository;
             _mapper = mapper;
 
+            
+
+
         }
 
         public async Task<CreateIssueResponse> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
         {
 
-          
-
+         
+            var createIssueResponse = new CreateIssueResponse();
+           
             var validator = new CreateIssueCommandValidation();
 
             var results = validator.Validate(request);
 
-            var createIssueResponse = new CreateIssueResponse();
+       
 
             if (results.IsValid == false)
             {
                 createIssueResponse.Success = false;
                 createIssueResponse.ValidationErrors = new List<string>();
 
-                foreach (ValidationFailure error in results.Errors)
+                foreach (var error in results.Errors)
                 {
                     createIssueResponse.ValidationErrors.Add(error.ErrorMessage);
                 }
             }
 
-       
 
 
-                if (createIssueResponse.Success == true)
+
+            if (results.IsValid == true)
             {
                 var issue = new Issue()
                 {
@@ -66,12 +71,11 @@ namespace Application.Features.Command.Issues.CreateIssue
 
                 };
                 await _issueRepository.AddAsync(issue);
-
-                createIssueResponse =  _mapper.Map<CreateIssueResponse>(issue);
-
+                createIssueResponse = _mapper.Map<CreateIssueResponse>(issue);
             }
-
-
+        
+      
+            
             return createIssueResponse;
            
 

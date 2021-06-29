@@ -32,31 +32,20 @@ export class Home extends Component {
   
    let description = document.getElementById('description').value;
    let priority = document.getElementById('priority').value;
-  axios({
-    method : 'post',
-      url: 'https://localhost:44321/api/Issue',
-      data : {
-        Summary : summary,
-        Priority : priority,
-        Description :description 
-        
-      }
-      
+     axios({
+         method: 'post',
+         url: 'https://localhost:44321/api/Issue',
+         data: {
+             Summary: summary,
+             Priority: priority,
+             Description: description
 
-  }).then(res => {
-    if(res.status == '200'){
-         this.setState({
-          status200 : 'Successfully added issue to database'
-         })
-       
+         }
+
+
+     });
     }
-    else{
-        this.setState({
-          status200 : "Didn't add issue to database please try again."
-        })   
-    }
-  })
- }
+ 
 
 
   render () {
