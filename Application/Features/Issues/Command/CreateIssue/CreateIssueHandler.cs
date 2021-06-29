@@ -8,6 +8,12 @@ using Domain.Models;
 using AutoMapper;
 using MediatR;
 using System.Threading;
+using Application.Validators;
+using FluentValidation;
+using FluentValidation.Results;
+using System.ComponentModel;
+using Application.Features.Issues.Command.CreateIssue;
+using System.Runtime.Intrinsics.X86;
 
 namespace Application.Features.Command.Issues.CreateIssue
 {
@@ -22,21 +28,58 @@ namespace Application.Features.Command.Issues.CreateIssue
             _issueRepository = issueRepository;
             _mapper = mapper;
 
+            
+
+
         }
 
         public async Task<CreateIssueResponse> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
         {
+
+         
             var createIssueResponse = new CreateIssueResponse();
-            var issue = new Issue
+           
+            var validator = new CreateIssueCommandValidation();
+
+            var results = validator.Validate(request);
+
+       
+
+            if (results.IsValid == false)
             {
-                Summary = request.Summary,
-                Issue_id = new Guid()
+                createIssueResponse.Success = false;
+                createIssueResponse.ValidationErrors = new List<string>();
 
-            };
+                foreach (var error in results.Errors)
+                {
+                    createIssueResponse.ValidationErrors.Add(error.ErrorMessage);
+                }
+            }
 
-            await _issueRepository.AddAsync(issue);
 
-            return _mapper.Map<CreateIssueResponse>(issue);
+
+
+            if (results.IsValid == true)
+            {
+                var issue = new Issue()
+                {
+                    Summary = request.Summary,
+
+                    Description = request.Description,
+                    Priority = request.Priority,
+                    Issue_id = new Guid()
+
+                };
+                await _issueRepository.AddAsync(issue);
+                createIssueResponse = _mapper.Map<CreateIssueResponse>(issue);
+            }
+        
+      
+            
+            return createIssueResponse;
+           
+
+    
 
 
 
