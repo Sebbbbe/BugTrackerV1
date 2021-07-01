@@ -1,88 +1,96 @@
-import React, { Component } from 'react';
-import Axios from 'axios';
+import React , {useState} from 'react';
 import axios from 'axios';
+import useForm from '../Validation/useForm'
+import validate from '../Validation/ValidateForm'
 
 
+const Home =  ()  => {
 
-export class Home extends Component {
-  static displayName = Home.name;
-  
-  constructor(){
-    super()
-    this.state = {
-      status200 : ''
+ // vi tar ut dessa 3 functions från useForm klassen
+  const {handleChange,handleSubmit , values, errors} = useForm(submit, validate);
 
-    }
-
+  function submit(){
+    console.log("Submitted Succesfully");
+   
+    
+    
   }
 
-
-
-
-
-
- 
-
-
-
-
-
- addIssueRequest(){
-   let summary = document.getElementById('summary').value;
-  
-   let description = document.getElementById('description').value;
-   let priority = document.getElementById('priority').value;
-     axios({
-         method: 'post',
-         url: 'https://localhost:44321/api/Issue',
-         data: {
-             Summary: summary,
-             Priority: priority,
-             Description: description
-
-         }
-
-
-     });
-    }
- 
-
-
-  render () {
- 
-    
-
-
+  function addIssueRequest(){
+    let summary = document.getElementById('summary').value;
    
- return (
+    let description = document.getElementById('description').value;
+    let priority = document.getElementById('priority').value;
 
-   <div>
-  <form action="">
+    
+      axios({
+          method: 'post',
+          url: 'https://localhost:44321/api/Issue',
+          data: {
+              Summary: summary,
+              Priority: priority,
+              Description: description
  
-     <input type="text" id="summary"  placeholder="summary"/> <br></br>
-     <form>
-         <select name = "dropdown" id="priority">
-            <option selected  value="Priority">Priority </option>
+          }
+ 
+ 
+      });
+     }
+  return (
+    <div>
+   {/*När man submittar kallar den på handlesubmit
+   i andra klassen och sedan kallar tillbacka så vi får den */}
+  <form  onSubmit={handleSubmit} noValidate>
+ 
+     <input 
+     type="text" 
+     name="summary"
+     id="summary"  
+     placeholder="summary"
+      value ={values.summary}
+       onChange={handleChange}/> 
+     
+     <br></br>
+     {errors.summary && <p>{errors.summary}</p>}
+    
+         <select  name="priority"  id="priority"  onChange={handleChange} > 
+            <option  value="Priority">Priority </option>
             <option value = "Low" >Low </option>
             <option value = "Medium">Medium</option>
             <option value = "High">High</option>
+            
+            
          </select>
-      </form>
-   
-     <input type="text" id="description" placeholder="Description"/><br></br>
+         
+     {errors.priority && <p>{errors.priority}</p>}
+
+         <br></br>
      
+   
+     <input  
+     type="text"
+     name="description"
+      id="description" 
+      placeholder="Description"
+       value ={values.description} 
+       onChange={handleChange}/>
+           {errors.description && <p>{errors.description}</p>}
+       <br></br>
+   
+     <button type="submit" onClick ={() => addIssueRequest()} >Add summary</button>
+    
      </form>
 
 
     
-     <button onClick ={() => this.addIssueRequest()} >Add summary</button>
-     <p >{this.state.status200}</p>
-     <h1></h1>
-   </div>
-       
-)
-
+     
+     
   
+   </div>
+    
+  )
+}
 
-    }
-  }
+export default Home;
+
+
