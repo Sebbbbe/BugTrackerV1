@@ -45,12 +45,15 @@ const {handleChange,handleSubmit , values, errors} = useForm(submit, validate);
   <form  onSubmit={handleSubmit} noValidate>
  
      <input 
+     
      type="text" 
      name="summary"
      id="summary"  
      placeholder="summary"
       value ={values.summary}
-       onChange={handleChange}/> 
+       onChange={handleChange}
+       data-cy = "summary"
+       /> 
      
      <br></br>
      {errors.summary && <p>{errors.summary}</p>}
@@ -71,15 +74,24 @@ const {handleChange,handleSubmit , values, errors} = useForm(submit, validate);
    
      <input  
      type="text"
+     
      name="description"
       id="description" 
       placeholder="Description"
        value ={values.description} 
-       onChange={handleChange}/>
+       onChange={handleChange}
+       data-cy = "description"
+       />
            {errors.description && <p>{errors.description}</p>}
        <br></br>
    
-     <button type="submit" onClick ={() => addIssueRequest()} >Add summary</button>
+     <button 
+     type="submit"
+     data-cy = "addSummaryBtn"
+     onClick ={() => addIssueRequest()
+     } >Add summary
+     
+     </button>
     
      </form>
 

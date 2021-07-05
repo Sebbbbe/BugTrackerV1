@@ -11,7 +11,8 @@ const Home =  (props)  => {
  <div>
 
 <Link to="/CreateIssue">
-     <button type="button">
+     <button type="button"
+     data-cy="createIssueBtn">
           Create Issue
      </button> </Link>
 
