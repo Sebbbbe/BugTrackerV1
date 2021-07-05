@@ -58,7 +58,7 @@ const {handleChange,handleSubmit , values, errors} = useForm(submit, validate);
      <br></br>
      {errors.summary && <p>{errors.summary}</p>}
     
-         <select  name="priority"  id="priority"  onChange={handleChange} > 
+         <select data-cy = "priority"  name="priority"  id="priority"  onChange={handleChange} > 
             <option  value="Priority">Priority </option>
             <option value = "Low" >Low </option>
             <option value = "Medium">Medium</option>

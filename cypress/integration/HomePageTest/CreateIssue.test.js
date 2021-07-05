@@ -36,16 +36,17 @@ describe('Click create Issue button ' , () => {
 
   
 
-    it('Create issue should display right error ' , () => {
+    it.only('Create issue should display right error and then write right ' , () => {
 
       
         cy.get('[data-cy=createIssueBtn]').should('exist').click()
-          
         //before button click error should be empty
+        
+         cy.url().should('include', '/CreateIssue')
+
         cy.contains('Please choose a priority').should('not.exist')
         cy.contains("Summary can't be empty").should('not.exist')
-        
-        
+     
         cy.get('[data-cy=addSummaryBtn]').click()
         
     
@@ -55,13 +56,31 @@ describe('Click create Issue button ' , () => {
         cy.contains("Summary can't be empty").should('exist')
       
         //kollar om jag är på rätt ställe
-       cy.url().should('include', '/CreateIssue')
+        
+        cy.get('[data-cy=summary]').type('Test')
+        cy.get('[data-cy=priority]').select('Medium')
+
+     
+    
+        cy.get('[data-cy=addSummaryBtn]').click()
+        cy.contains('Please choose a priority').should('not.exist')
+        cy.contains("Summary can't be empty").should('not.exist')
+        
 
 })
 
+    
+
+
+   
+       
+
 })
+
+
 // should('have.text', 'Create Issue')
 // cy.viewport(1280,720)
 //it.only runs only that test
 // cy.get('[data-cy=summary]').type('Yey')
 //cy.url().should('include', '/CreateIssue')
+// cy.pause()
