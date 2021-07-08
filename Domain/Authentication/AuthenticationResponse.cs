@@ -1,4 +1,5 @@
 ﻿namespace Domain.Authentication
+
 {
     public class AuthenticationResponse
     {

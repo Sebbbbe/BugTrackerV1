@@ -11,7 +11,6 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Application.Features.Authentication
 {
     public class AuthenticationService: IAuthenticationService
@@ -54,7 +53,7 @@ namespace Application.Features.Authentication
                 Email = user.Email,
                 UserName = user.UserName
             };
-
+            
             return response;
         }
 
