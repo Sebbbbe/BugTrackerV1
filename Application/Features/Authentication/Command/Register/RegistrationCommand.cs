@@ -1,13 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Authentication
+namespace Application.Features.Authentication.Command.Register
 {
-    public class RegistrationRequest
+    public class RegistrationCommand
     {
-        [Required] 
+
+
+
         public string FirstName { get; set; }
 
-        [Required]
+
         public string LastName { get; set; }
 
         [Required]

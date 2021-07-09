@@ -1,4 +1,4 @@
-﻿namespace Domain.Authentication
+﻿namespace Domain.AuthenticationModels
 {
     public class JwtSettings
     {

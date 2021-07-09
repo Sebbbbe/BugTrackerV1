@@ -1,12 +1,12 @@
-﻿using Application.Features.Command.Issues.CreateIssue;
+﻿
+
+using Application.Features.Authentication.Command.Register;
 using Application.Features.Issues.Query;
+
 using Domain.IRepository;
 using Infrastructure.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Application.Services
 {
@@ -17,25 +17,42 @@ namespace Application.Services
          
 
           
-            //mediatr
-
+       
             
             
             //infrastructure to repository
             
             
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-           
-            
-            //Issue
+
+
+            //For IRepositories to Repositories
             services.AddScoped<IIssueRepository ,  IssueRepository> ();
+           
+           
 
 
 
+            //authentication
+            services.AddScoped<IRegistrationService, RegistrationHandler>();
 
             // service to handler
 
             services.AddScoped<IGetAllIssuesService, GetAllIssuesHandler>();
+            //services.AddScoped<IRegistrationService, RegistrationHandler>();
+
+
+         
+
+
+
+
+            //services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+            // AuthenticationService
+
+            //services.AddScoped<IAuthenticationService, AuthenticationService>();
+
 
 
 

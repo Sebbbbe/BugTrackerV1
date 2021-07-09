@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
 
-namespace Domain.Authentication
+namespace Domain.AuthenticationModels
 {
     public class ApplicationUser : IdentityUser
     {

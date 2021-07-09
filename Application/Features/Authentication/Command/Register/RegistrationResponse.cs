@@ -1,4 +1,4 @@
-﻿namespace Domain.Authentication
+﻿namespace Application.Features.Authentication.Command.Register
 {
     public class RegistrationResponse
     {
