@@ -1,4 +1,5 @@
 ﻿using Application.Features.Authentication.Command.Register;
+using Application.Features.Authentication.Commands.Login;
 using Application.Features.Command.Issues.CreateIssue;
 using Application.Features.Issues.Query;
 using AutoMapper;
@@ -28,7 +29,11 @@ namespace Application.Services
             CreateMap<Issue, GetAllIssuesResponse>();
 
 
+
+
+            //authentication
             CreateMap<RegistrationModel, RegistrationResponse>();
+            CreateMap<AuthenticationModel, AuthenticationResponse>();
 
 
 

@@ -43,6 +43,8 @@ namespace Application.Services
 
             services.AddScoped<IRegistrationService, RegistrationHandler>();
             services.AddScoped<Features.Authentication.Commands.Login.IAuthenticationService, AuthenticationHandler>();
+            services.AddScoped<Features.Authentication.Commands.Login.IAuthenticationService, AuthenticationHandler>();
+
 
 
             // service to handler
