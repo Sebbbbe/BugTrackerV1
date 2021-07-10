@@ -72,8 +72,13 @@ C:\Users\sebas\source\repos\BugTrackerV1\API\obj\Debug\net5.0\API.genruntimeconf
 C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
-C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\EntityFramework.SqlServer.dll
-C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\EntityFramework.dll
-C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNet.Identity.Core.dll
-C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\API.StaticWebAssets.xml
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\sebas\source\repos\BugTrackerV1\API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

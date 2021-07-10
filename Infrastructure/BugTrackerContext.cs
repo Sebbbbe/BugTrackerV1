@@ -1,15 +1,13 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Extensions.Configuration;
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Domain.AuthenticationModels;
 
 namespace Infrastructure
 {
-   public class BugTrackerContext : DbContext
+   public class BugTrackerContext : IdentityDbContext<ApplicationUser>
     {
         
         

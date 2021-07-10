@@ -4,9 +4,12 @@ using Application.Features.Authentication.Command.Register;
 using Application.Features.Issues.Query;
 
 using Domain.IRepository;
+using Infrastructure;
 using Infrastructure.Repository;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace Application.Services
 {
@@ -28,30 +31,28 @@ namespace Application.Services
 
             //For IRepositories to Repositories
             services.AddScoped<IIssueRepository ,  IssueRepository> ();
-           
-           
+            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+
 
 
 
             //authentication
+        
+
             services.AddScoped<IRegistrationService, RegistrationHandler>();
 
             // service to handler
 
             services.AddScoped<IGetAllIssuesService, GetAllIssuesHandler>();
-            //services.AddScoped<IRegistrationService, RegistrationHandler>();
-
-
-         
 
 
 
 
-            //services.AddScoped<IAuthenticationService, AuthenticationService>();
 
-            // AuthenticationService
 
-            //services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddIdentityServices(configuration);
+
+
 
 
 

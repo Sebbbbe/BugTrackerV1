@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.IRepository
 {
-    public interface IAuthenticationService
+    public interface IAuthenticationRepository
     {
-
-
         Task<JwtSecurityToken> GenerateToken(ApplicationUser user);
     }
 }

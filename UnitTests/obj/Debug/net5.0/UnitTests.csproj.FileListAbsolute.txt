@@ -237,3 +237,12 @@ C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Infrastructu
 C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Application.pdb
 C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Domain.pdb
 C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Infrastructure.pdb
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\sebas\source\repos\BugTrackerV1\UnitTests\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

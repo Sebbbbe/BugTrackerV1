@@ -1,4 +1,5 @@
 ﻿using Domain.AuthenticationModels;
+using Domain.IRepository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -9,11 +10,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.IRepository;
+
 
 namespace Infrastructure.Repository
 {
-    public class AuthenticationRepository 
+    public class AuthenticationRepository : IAuthenticationRepository
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly JwtSettings _jwtSettings;
