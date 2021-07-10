@@ -1,4 +1,4 @@
-﻿namespace Domain.AuthenticationModels
+﻿namespace GloboTicket.TicketManagement.Application.Models.Authentication
 {
     public class JwtSettings
     {

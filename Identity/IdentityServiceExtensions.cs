@@ -1,7 +1,11 @@
-﻿
-using Domain.AuthenticationModels;
+﻿using Domain.IRepository;
+
+using GloboTicket.TicketManagement.Application.Models.Authentication;
+
+
+using Identity.Models;
+using Identity.Services;
 using Infrastructure;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -10,26 +14,24 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-
 using System;
 using System.Text;
 
-namespace GloboTicket.TicketManagement.Identity
+namespace Identity
 {
-    public static class InfrastructureServiceExtensions
+    public static class IdentityServiceExtensions
     {
-        public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<JwtSettings>(configuration.GetSection("DefaultConnection"));
+            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
-            services.AddDbContext<BugTrackerContext>(options => options.UseSqlServer(configuration.GetConnectionString("RestaurantReviewConnectionString"),
+            services.AddDbContext<BugTrackerContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(BugTrackerContext).Assembly.FullName)));
 
-            //services.AddIdentity<ApplicationUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<BugTrackerContext>().AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<BugTrackerContext2>().AddDefaultTokenProviders();
 
-            //Dont think this line is needed since we do it in application services
-            //services.AddTransient<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<IAuthenticationRepository, AuthenticationService>();
 
             services.AddAuthentication(options =>
             {
@@ -64,7 +66,7 @@ namespace GloboTicket.TicketManagement.Identity
                         OnChallenge = context =>
                         {
                             context.HandleResponse();
-                            context.Response.StatusCode = 401;
+                            context.Response.StatusCode = 401;https://www.youtube.com/watch?v=JbjzPKTfjlc
                             context.Response.ContentType = "application/json";
                             var result = JsonConvert.SerializeObject("401 Not authorized");
                             return context.Response.WriteAsync(result);
@@ -78,10 +80,6 @@ namespace GloboTicket.TicketManagement.Identity
                         },
                     };
                 });
-
-
-
-            return services;
         }
     }
 }

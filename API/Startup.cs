@@ -3,12 +3,16 @@ using Application.Features.Command.Issues.CreateIssue;
 using Application.Services;
 using AutoMapper;
 using Domain.IRepository;
+
+using Identity;
+using Identity.Models;
 using Infrastructure;
 using Infrastructure.Repository;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -53,8 +57,10 @@ namespace API
             });
             services.AddControllers();
 
+
+
             //context
-            services.AddDbContext<BugTrackerContext>(options =>
+            services.AddDbContext<Infrastructure.BugTrackerContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
@@ -95,8 +101,12 @@ namespace API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BugTracker", Version = "v1" });
             });
 
-
+            services.AddIdentityServices(Configuration);
             services.AddScopeService(Configuration);
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+              .AddEntityFrameworkStores<BugTrackerContext2>().AddDefaultTokenProviders();
+
 
             // Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>
@@ -140,10 +150,12 @@ namespace API
            
 
             app.UseRouting();
-        
 
+           
+            app.UseAuthentication();
             app.UseAuthorization();
-      
+   
+
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

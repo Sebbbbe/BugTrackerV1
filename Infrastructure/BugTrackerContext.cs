@@ -6,10 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
 {
-   public class BugTrackerContext : DbContext
+   public class BugTrackerContext : DbContext 
     {
         
         
@@ -17,6 +18,11 @@ namespace Infrastructure
             : base(options)
         {
            
+
+        }
+
+        public BugTrackerContext()
+        {
 
         }
 

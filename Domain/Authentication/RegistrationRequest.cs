@@ -1,15 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Application.Features.Authentication.Command.Register
+namespace GloboTicket.TicketManagement.Application.Models.Authentication
 {
-    public class RegistrationCommand
+    public class RegistrationRequest
     {
-
-
-
+        [Required] 
         public string FirstName { get; set; }
 
-
+        [Required]
         public string LastName { get; set; }
 
         [Required]

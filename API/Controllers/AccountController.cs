@@ -1,7 +1,10 @@
 ﻿
 
-using Application.Features.Authentication.Command.Register;
-using Domain.AuthenticationModels;
+using Domain.Authentication;
+using Domain.IRepository;
+
+using GloboTicket.TicketManagement.Application.Models.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -11,23 +14,23 @@ namespace API.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IRegistrationService _registrationService;
-        public AccountController(IRegistrationService registrationService)
+        private  readonly IAuthenticationRepository _authenticationRepository;
+        public AccountController(IAuthenticationRepository authenticationRepository)
         {
-    
-            _registrationService = registrationService;
+
+            _authenticationRepository = authenticationRepository;
         }
 
-        //[HttpPost("authenticate")]
-        //public async Task<ActionResult<AuthenticationModel>> AuthenticateAsync(AuthenticationRequest request)
-        //{
-        //    return Ok(await _authenticationService.AuthenticateAsync(request));
-        //}
+        [HttpPost("authenticate")]
+        public async Task<ActionResult<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request)
+        {
+            return Ok(await _authenticationRepository.AuthenticateAsync(request));
+        }
 
         [HttpPost("register")]
-        public async Task<ActionResult<RegistrationResponse>> RegisterAsync(RegistrationCommand request)
+        public async Task<ActionResult<RegistrationResponse>> RegisterAsync(RegistrationRequest request)
         {
-            return Ok(await _registrationService.RegisterAsync(request));
+            return Ok(await _authenticationRepository.RegisterAsync(request));
         }
     }
 }

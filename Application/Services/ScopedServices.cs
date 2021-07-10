@@ -1,6 +1,4 @@
 ﻿
-
-using Application.Features.Authentication.Command.Register;
 using Application.Features.Issues.Query;
 
 using Domain.IRepository;
@@ -34,7 +32,7 @@ namespace Application.Services
 
 
             //authentication
-            services.AddScoped<IRegistrationService, RegistrationHandler>();
+            
 
             // service to handler
 

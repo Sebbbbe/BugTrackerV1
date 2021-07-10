@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
 
-namespace Domain.AuthenticationModels
+
+namespace Identity.Models
 {
     public class ApplicationUser : IdentityUser
     {

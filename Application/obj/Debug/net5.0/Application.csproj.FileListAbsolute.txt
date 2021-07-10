@@ -15,3 +15,5 @@ C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\net5.0\Applicatio
 C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\net5.0\Application.dll
 C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\net5.0\ref\Application.dll
 C:\Users\sebas\source\repos\BugTrackerV1\Application\obj\Debug\net5.0\Application.pdb
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\net5.0\Identity.dll
+C:\Users\sebas\source\repos\BugTrackerV1\Application\bin\Debug\net5.0\Identity.pdb
