@@ -32,7 +32,17 @@ namespace Application.Services
 
 
             //authentication
+<<<<<<< HEAD
             
+=======
+
+
+            services.AddScoped<IRegistrationService, RegistrationHandler>();
+            services.AddScoped<Features.Authentication.Commands.Login.IAuthenticationService, AuthenticationHandler>();
+            services.AddScoped<Features.Authentication.Commands.Login.IAuthenticationService, AuthenticationHandler>();
+
+
+>>>>>>> e47bbdd ( added register login authentication)
 
             // service to handler
 

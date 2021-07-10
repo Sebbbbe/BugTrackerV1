@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿using Application.Features.Command.Issues.CreateIssue;
+=======
+﻿using Application.Features.Authentication.Command.Register;
+using Application.Features.Authentication.Commands.Login;
+using Application.Features.Command.Issues.CreateIssue;
+>>>>>>> e47bbdd ( added register login authentication)
 using Application.Features.Issues.Query;
 using AutoMapper;
 using Domain.Models;
@@ -26,6 +32,16 @@ namespace Application.Services
             CreateMap<Issue, GetAllIssuesResponse>();
 
 
+<<<<<<< HEAD
+=======
+
+
+            //authentication
+            CreateMap<RegistrationModel, RegistrationResponse>();
+            CreateMap<AuthenticationModel, AuthenticationResponse>();
+
+
+>>>>>>> e47bbdd ( added register login authentication)
 
 
         }
