@@ -1,14 +1,16 @@
 ﻿
 
 using Application.Features.Authentication.Command.Register;
+using Application.Features.Authentication.Commands.Login;
 using Application.Features.Issues.Query;
 
 using Domain.IRepository;
 using Infrastructure;
 using Infrastructure.Repository;
-
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Features.Authentication.Commands.Login;
 
 
 namespace Application.Services
@@ -27,19 +29,21 @@ namespace Application.Services
             
             
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
 
 
             //For IRepositories to Repositories
             services.AddScoped<IIssueRepository ,  IssueRepository> ();
-            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
 
 
 
 
             //authentication
-        
+
 
             services.AddScoped<IRegistrationService, RegistrationHandler>();
+            services.AddScoped<Features.Authentication.Commands.Login.IAuthenticationService, AuthenticationHandler>();
+
 
             // service to handler
 

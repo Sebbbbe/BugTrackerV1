@@ -2,10 +2,10 @@
 
 namespace Domain.AuthenticationModels
 {
-    public class RegistrationRequest
+    public class RegistrationModel
     {
         [Required]
-        public string UserId { get; set; }
+        public string ApplicationUserId { get; set; }
         [Required] 
         public string FirstName { get; set; }
 

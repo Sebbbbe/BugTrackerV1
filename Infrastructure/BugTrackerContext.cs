@@ -23,6 +23,7 @@ namespace Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BugTrackerContext).Assembly);
+            base.OnModelCreating(modelBuilder);
         }
 
      

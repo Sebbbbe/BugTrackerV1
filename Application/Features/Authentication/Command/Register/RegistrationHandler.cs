@@ -42,7 +42,7 @@ namespace Application.Features.Authentication.Command.Register
 
                 if (result.Succeeded)
                 {
-                    var registrationModel = new RegistrationCommand() {  };
+                    var registrationModel = new RegistrationModel() { ApplicationUserId = user.Id };
 
                     var registrationResponse = _mapper.Map<RegistrationResponse>(registrationModel);
 

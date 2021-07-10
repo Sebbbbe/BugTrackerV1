@@ -1,6 +1,8 @@
-﻿using Application.Features.Command.Issues.CreateIssue;
+﻿using Application.Features.Authentication.Command.Register;
+using Application.Features.Command.Issues.CreateIssue;
 using Application.Features.Issues.Query;
 using AutoMapper;
+using Domain.AuthenticationModels;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,9 @@ namespace Application.Services
 
             //from model to GetModelResponse
             CreateMap<Issue, GetAllIssuesResponse>();
+
+
+            CreateMap<RegistrationModel, RegistrationResponse>();
 
 
 
