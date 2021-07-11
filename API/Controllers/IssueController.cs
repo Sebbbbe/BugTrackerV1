@@ -1,6 +1,7 @@
 ﻿using Application.Features.Command.Issues.CreateIssue;
 using Application.Features.Issues.Query;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
- 
+    [Authorize]
     public class IssueController : ControllerBase
     {
         private readonly IMediator _mediator;
