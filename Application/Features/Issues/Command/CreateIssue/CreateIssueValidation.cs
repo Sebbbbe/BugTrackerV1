@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Application.Features.Command.Issues.CreateIssue;
+using Application.Features.Projects.Command.CreateProject;
 using FluentValidation;
 
 namespace Application.Features.Issues.Command.CreateIssue
 {
-    public class CreateIssueCommandValidation : AbstractValidator<CreateIssueCommand>
+    public class CreateIssueValidation : AbstractValidator<CreateIssueCommand>
     {
-        public CreateIssueCommandValidation()
+        public CreateIssueValidation()
         {
             RuleFor(p => p.Summary)
               .NotEmpty().WithMessage("{PropertyName} is empty ")

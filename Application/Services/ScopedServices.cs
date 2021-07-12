@@ -30,6 +30,7 @@ namespace Application.Services
             
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
 
 
             //For IRepositories to Repositories

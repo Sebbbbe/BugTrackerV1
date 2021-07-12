@@ -1,4 +1,4 @@
-﻿using Application.Features.Command.Issues.CreateIssue;
+﻿
 using Application.Services;
 using AutoMapper;
 using Domain.IRepository;
@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Xunit.Tests.Mocks;
 using Xunit;
 using Shouldly;
+using Application.Features.Issues.Command.CreateIssue;
+using Application.Features.Projects.Command.CreateProject;
 
 namespace Xunit.Tests.Issues.Commands
 {

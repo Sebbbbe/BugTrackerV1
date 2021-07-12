@@ -1,13 +1,12 @@
-﻿using Application.Features.Authentication.Command.Register;
+﻿
+using Application.Features.Authentication.Command.Register;
 using Application.Features.Authentication.Commands.Login;
-using Application.Features.Command.Issues.CreateIssue;
+using Application.Features.Issues.Command.CreateIssue;
 using Application.Features.Issues.Query;
+using Application.Features.Projects.Command.CreateProject;
 using AutoMapper;
 using Domain.AuthenticationModels;
 using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Application.Services
 {
@@ -20,10 +19,12 @@ namespace Application.Services
 
             //from model to CreateModelResponse
             CreateMap<Issue, CreateIssueResponse>();
-          
-            
-            
-            
+            CreateMap<Project, CreateProjectResponse>();
+
+
+
+
+
 
             //from model to GetModelResponse
             CreateMap<Issue, GetAllIssuesResponse>();

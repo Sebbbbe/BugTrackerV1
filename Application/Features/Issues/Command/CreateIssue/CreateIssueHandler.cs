@@ -12,10 +12,10 @@ using Application.Validators;
 using FluentValidation;
 using FluentValidation.Results;
 using System.ComponentModel;
-using Application.Features.Issues.Command.CreateIssue;
 using System.Runtime.Intrinsics.X86;
 
-namespace Application.Features.Command.Issues.CreateIssue
+
+namespace Application.Features.Issues.Command.CreateIssue
 {
     public class CreateIssueHandler : IRequestHandler<CreateIssueCommand, CreateIssueResponse>
     {
@@ -28,7 +28,7 @@ namespace Application.Features.Command.Issues.CreateIssue
             _issueRepository = issueRepository;
             _mapper = mapper;
 
-            
+
 
 
         }
@@ -36,14 +36,14 @@ namespace Application.Features.Command.Issues.CreateIssue
         public async Task<CreateIssueResponse> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
         {
 
-         
+
             var createIssueResponse = new CreateIssueResponse();
-           
-            var validator = new CreateIssueCommandValidation();
+
+            var validator = new CreateIssueValidation();
 
             var results = validator.Validate(request);
 
-       
+
 
             if (results.IsValid == false)
             {
@@ -73,13 +73,13 @@ namespace Application.Features.Command.Issues.CreateIssue
                 await _issueRepository.AddAsync(issue);
                 createIssueResponse = _mapper.Map<CreateIssueResponse>(issue);
             }
-        
-      
-            
-            return createIssueResponse;
-           
 
-    
+
+
+            return createIssueResponse;
+
+
+
 
 
 

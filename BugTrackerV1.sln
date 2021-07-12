@@ -18,6 +18,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{35E32B18-94F9-4E5E-8A53-CB3919E49390}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2BD18D20-4525-4428-89C8-6EE28E6D48B3}"
+	ProjectSection(SolutionItems) = preProject
+		Application\Services\ScopedServices.cs = Application\Services\ScopedServices.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2BE511C2-1522-4BDF-B09B-BB7FF23BAC1C}"
 EndProject

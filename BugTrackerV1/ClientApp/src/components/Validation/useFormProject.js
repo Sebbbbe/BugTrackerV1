@@ -2,8 +2,8 @@ import {useState} from  'react';
 
 const useForm = (callBack , validate) => {
     // kan just nu inte skriva mer än 1 bokstav då den resettar måste göra en setValues
-    const [values, setValues] = useState({summary : "" , description: "" , priority : "priority"});
-    const [errors, setErrors] = useState({summary : "" ,description: "" ,  priority : ""});
+    const [values, setValues] = useState({Project_Name : "" });
+    const [errors, setErrors] = useState({Project_Name : ""});
 
    const handleChange = event => {
   //  const {name , value} = event
