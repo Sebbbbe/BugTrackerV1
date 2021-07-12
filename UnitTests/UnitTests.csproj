@@ -23,7 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Issues\Queries\" />
+    <Folder Include="Tests\Issues\Queries\" />
+    <Folder Include="Tests\Projects\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

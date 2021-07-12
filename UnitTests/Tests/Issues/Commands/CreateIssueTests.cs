@@ -23,31 +23,38 @@ namespace Xunit.Tests.Issues.Commands
     {
 
         private readonly IMapper _mapper;
-        private readonly Mock<IIssueRepository> _mockIssueRepository;
+        private readonly Mock<IIssueRepository> _MockIssueRepository;
 
         public CreateIssueTests()
         {
-            _mockIssueRepository = RepositoryMocks.GetIssueRepository();
+        ;
+            _MockIssueRepository = IssuesRepositoryMocks.GetIssueRepository();
+
             var configurationProvider = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<MappingProfile>();
             });
+
+
 
             _mapper = configurationProvider.CreateMapper();
         }
 
 
         //testar de 2 olika i repositorymocks och 1 här som sammanlagt blir 3 och det blir 3
-      
+
         [Fact]
         public async Task Handle_ValidIssue_AddedToIssueRepo()
         {
-            var handler = new CreateIssueHandler(_mockIssueRepository.Object, _mapper);
+            //arrange
+            //var handler = new CreateIssueHandler(_MockIssueRepository.Object, _mapper);
+            //act
+            //await handler.Handle(new CreateIssueCommand(){}, CancellationToken.None);
+          
 
-            await handler.Handle(new CreateIssueCommand() { Summary = "Test" }, CancellationToken.None);
-
-            var allIssues = await _mockIssueRepository.Object.ListAllAsync();
-            allIssues.Count.ShouldBe(3);
+            //assert
+            var allIssues = await _MockIssueRepository.Object.ListAllAsync();
+            allIssues.Count.ShouldBe(1);
         }
     }
 }
